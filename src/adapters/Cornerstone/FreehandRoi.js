@@ -39,18 +39,17 @@ class FreehandRoi {
         return state;
     }
 
-    static getTID300RepresentationArguments(/*tool*/) {
-        const { handles, finding, findingSites, cachedStats } = tool;
+    static getTID300RepresentationArguments(tool) {
+        const { handles, finding, findingSites } = tool;
         const { points } = handles;
-        const { area = 0, perimeter = 0 } = cachedStats;
-
+     
         const trackingIdentifierTextValue =
             "cornerstoneTools@^4.0.0:FreehandRoi";
 
         return {
             points,
-            area,
-            perimeter,
+            area: 0,
+            perimeter: 0,
             trackingIdentifierTextValue,
             finding,
             findingSites: findingSites || []
